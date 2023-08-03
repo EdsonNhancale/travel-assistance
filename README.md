@@ -16,7 +16,7 @@ You will also see any lint errors in the console.
 
 # Getting Started with Server
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [NodeJs](https://nodejs.org).
 
 ## Available Scripts
 
