@@ -7,10 +7,15 @@ import { router as ExchangeController } from './exchange/ExchangeController';
 import { router as FindCountryController } from './findCountry/FindCountryController';
 import { router as PopulationController } from './population/PopulationController';
 import { router as GdpController } from './gdp/GdpController';
+import cors from 'cors';
 const app = express();
 const port = 8000;
 
 app.use(bodyParser.json());
+
+app.use(cors({
+  origin: '*'
+}));
 
 app.use(function (err: { status: any; }, req: any, res: { status: (arg0: any) => void; send: (arg0: any) => void; }, next: any) {
   res.status(err.status || 500);
