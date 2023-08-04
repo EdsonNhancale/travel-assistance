@@ -4,6 +4,7 @@ import express from "express";
 import bodyParser from 'body-parser';
 import { router as WeatherController } from './weather/WeatherController';
 import { router as ExchangeController } from './exchange/ExchangeController';
+import { router as FindCountryController } from './findCountry/FindCountryController';
 const app = express();
 const port = 8000;
 
@@ -17,6 +18,8 @@ app.use(function (err: { status: any; }, req: any, res: { status: (arg0: any) =>
 app.use("/weather", WeatherController);
 
 app.use("/currency", ExchangeController);
+
+app.use("/country", FindCountryController);
 
 //Port running
 app.listen(port, function () {
