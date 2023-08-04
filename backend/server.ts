@@ -1,17 +1,22 @@
+
+
 // Load HTTP module
-const express = require("express");
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
+import express from "express";
+// import cookieParser from 'cookie-parser';
+import bodyParser from 'body-parser';
+import { router as WeatherController } from './weather/WeatherController';
 const app = express();
 const port = 8000;
 
 app.use(bodyParser.json());
-app.use(cookieParser());
+// app.use(cookieParser());
 
-app.use(function(err, req, res, next) {
+app.use(function (err: { status: any; }, req: any, res: { status: (arg0: any) => void; send: (arg0: any) => void; }, next: any) {
   res.status(err.status || 500);
   res.send(err);
 });
+
+app.use("/weather", WeatherController);
 
 //Port running
 app.listen(port, function () {
